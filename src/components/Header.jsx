@@ -8,14 +8,14 @@ import { Spinner } from './Spinner'
 import { RainbowButtonDemo } from './RainbowButton'
 
 const Header = () => {
-  const menus = ["Products", "Docs", "FAQs"]
+  const menus = [ "Docs","How It Works", "FAQs" ]
   const { isLoaded, isSignedIn, user } = useUser()
   if (!isLoaded) {
     return <Spinner />
   }
   return (
     <>
-      <header className="z-10 py-2 px-5 md:px-8 lg:mx-24 bg-white dark:bg-black">
+      <header className="z-10 py-2 px-5 md:px-8 lg:mx-24 bg-white dark:bg-black sticky">
         <div className='flex flex-row items-center justify-between'>
 
           <Logo position="top" />
