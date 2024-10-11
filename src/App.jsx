@@ -10,6 +10,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
+          {/* <Route path="/" element={<HomePage />}></Route>
+          <Route path="/docs" element={<HomePage />}></Route>
+          <Route path="/faqs" element={<HomePage />}></Route> */}
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
