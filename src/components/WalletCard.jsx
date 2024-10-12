@@ -12,7 +12,7 @@ const WalletCard = () => {
     const dummyBalance = 20
     const btns = ["Send", "Add Funds", "Withdraw", "Swap"]
     return (
-        <div className='lg:w-[60vw] w-full px-4 h-full'>
+        <div className='lg:w-[60vw] w-full px-4 h-screen'>
             <Card>
                 <CardHeader>
                     <CardTitle className="text-black dark:text-white">
@@ -32,12 +32,12 @@ const WalletCard = () => {
                 </CardHeader>
                 <CardContent>
                     <div className='flex flex-row items-end gap-3'>
-                        <h1 className='text-7xl font-bold'>{"$" + dummyBalance}</h1>
+                        <h1 className='text-7xl font-extrabold'>{"$" + dummyBalance}</h1>
                         <span className='text-3xl font-bold text-neutral-600 dark:text-neutral-400'>USD</span>
                     </div>
-                    <div className='flex gap-3 pt-6 justify-between p-4'>
+                    <div className='flex gap-4 pt-6 justify-between py-4 px-1'>
                         {btns.map((btn, index) => (
-                            <Button key={index} className="w-72 text-md">{btn}</Button>
+                            <Button key={index} variant="outline" size="lg" className="w-72 text-md">{btn}</Button>
                         )
                         )}
                     </div>
@@ -50,32 +50,14 @@ const WalletCard = () => {
                             <TabsTrigger value="nft" className="w-full h-10">NFT</TabsTrigger>
                             <TabsTrigger value="activity" className="w-full h-10">Activity</TabsTrigger>
                         </TabsList>
-                        <TabsContent value="token" className="p-4">
-                            <h3 className="text-lg font-semibold mb-2">Token Information</h3>
-                            <p>View your token balances and transactions here. You can also manage your token holdings and explore new tokens to add to your portfolio.</p>
-                            <ul className="list-disc list-inside mt-2">
-                                <li>Total Balance: 1,000 XYZ</li>
-                                <li>Recent Transaction: Sent 50 XYZ to 0x1234...</li>
-                                <li>Market Value: $5,000 USD</li>
-                            </ul>
+                        <TabsContent value="token" className="p-4 text-center">
+                            Nothing to show
                         </TabsContent>
-                        <TabsContent value="nft" className="p-4">
-                            <h3 className="text-lg font-semibold mb-2">NFT Collection</h3>
-                            <p>Explore and manage your NFT collection. View your owned NFTs, recent trades, and discover new digital artworks and collectibles.</p>
-                            <ul className="list-disc list-inside mt-2">
-                                <li>Total NFTs: 5</li>
-                                <li>Recent Acquisition: CryptoPunk #1234</li>
-                                <li>Estimated Collection Value: 10 ETH</li>
-                            </ul>
+                        <TabsContent value="nft" className="p-4 text-center">
+                        Nothing to show
                         </TabsContent>
-                        <TabsContent value="activity" className="p-4">
-                            <h3 className="text-lg font-semibold mb-2">Recent Activity</h3>
-                            <p>Track your recent transactions and interactions on the blockchain. This includes token transfers, NFT trades, and smart contract interactions.</p>
-                            <ul className="list-disc list-inside mt-2">
-                                <li>10 min ago: Swapped 100 DAI for 0.05 ETH</li>
-                                <li>2 hours ago: Minted new NFT from Collection XYZ</li>
-                                <li>1 day ago: Staked 500 tokens in Farm ABC</li>
-                            </ul>
+                        <TabsContent value="activity" className="p-4 text-center">
+                        Nothing to show
                         </TabsContent>
                     </Tabs>
                 </CardFooter>

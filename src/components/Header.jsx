@@ -15,9 +15,8 @@ const Header = () => {
   }
   return (
     <>
-      <header className="z-10 py-2 px-5 md:px-8 lg:mx-24 bg-white dark:bg-black sticky">
+      <header className="z-10 py-2 px-5 md:px-8 lg:px-24  backdrop-blur-md bg-background/80 sticky top-0">
         <div className='flex flex-row items-center justify-between'>
-
           <Logo position="top" />
           <nav className="flex items-center space-x-4">
             {menus.map((item, index) => (
@@ -37,7 +36,7 @@ const Header = () => {
           </nav>
         </div>
       </header>
-      <Separator />
+      <Separator className="fixed top-[80px]" />
     </>
   )
 }
