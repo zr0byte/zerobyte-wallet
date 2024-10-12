@@ -5,12 +5,13 @@ import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs'
 import { Button } from './ui/button'
 import icon from "../assets/logos/dark.png"
+import { Separator } from './ui/separator'
 
 const WalletCard = () => {
     const { user } = useUser()
     console.log(user);
     const dummyBalance = 20
-    const btns = ["Send", "Add Funds", "Withdraw", "Swap"]
+    const btns = ["Send", "Recieve", "Withdraw"]
     return (
         <div className='lg:w-[60vw] w-full px-4 h-screen'>
             <Card>
@@ -28,7 +29,7 @@ const WalletCard = () => {
                             </div>
                         </div>
                     </CardTitle>
-                    <CardDescription className="pt-5">Your Account Assets.</CardDescription>
+                    <CardDescription className="pt-5">Your Account</CardDescription>
                 </CardHeader>
                 <CardContent>
                     <div className='flex flex-row items-end gap-3'>
@@ -41,6 +42,7 @@ const WalletCard = () => {
                         )
                         )}
                     </div>
+                    <CardDescription className="pt-5">Your Assests</CardDescription>
                 </CardContent>
                 {/* Showing random data for now */}
                 <CardFooter className="w-full px-6">
@@ -54,10 +56,10 @@ const WalletCard = () => {
                             Nothing to show
                         </TabsContent>
                         <TabsContent value="nft" className="p-4 text-center">
-                        Nothing to show
+                            Nothing to show
                         </TabsContent>
                         <TabsContent value="activity" className="p-4 text-center">
-                        Nothing to show
+                            Nothing to show
                         </TabsContent>
                     </Tabs>
                 </CardFooter>
