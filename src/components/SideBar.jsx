@@ -8,7 +8,7 @@ import { ModeToggle } from './mode-toggle'
 import Logo from './Logo'
 
 const SideBar = () => {
-    const { isSigned } = useAuth()
+    const { isSignedIn } = useAuth()
     return (
         <Sheet>
             <SheetTrigger>
@@ -24,7 +24,7 @@ const SideBar = () => {
                     </SheetTitle>
                     <SheetDescription>
                         {
-                            !isSigned && <div className='flex flex-col'>
+                            !isSignedIn && <div className='flex flex-col'>
                                 <Link to="/how-it-works">
                                     <Button variant="ghost" size="sm" className="text-black dark:text-white w-full">
                                         How it Works

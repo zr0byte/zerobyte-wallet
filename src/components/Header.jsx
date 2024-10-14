@@ -4,10 +4,11 @@ import Logo from './Logo'
 import { Button } from './ui/button'
 import { ModeToggle } from './mode-toggle'
 import { Separator } from './ui/separator'
-import { SignedIn, SignedOut, UserButton, useUser } from '@clerk/clerk-react'
+import { SignedIn, SignedOut, UserButton, useAuth, useUser } from '@clerk/clerk-react'
 import { Spinner } from './Spinner'
 import { RainbowButtonDemo } from './RainbowButton'
 import SideBar from './SideBar'
+import CustomUserMenu from './CustomUserMenu'
 
 const Header = () => {
   const menus = [
@@ -16,7 +17,10 @@ const Header = () => {
     { title: "FAQs", link: "/faqs" }
   ]
   const { isLoaded, isSignedIn } = useUser()
+  const user = useUser()
+  const auth = useAuth()
   const [isMobile, setIsMobile] = useState(false)
+  console.log(user, auth);
 
   useEffect(() => {
     const handleResize = () => {
@@ -45,7 +49,10 @@ const Header = () => {
         ))}
       </SignedOut>
       <SignedIn>
-        <UserButton />
+        <Button variant="ghost" size="icon">
+          {/* <UserButton /> */}
+          <CustomUserMenu />
+        </Button>
       </SignedIn>
     </>
   )
