@@ -1,4 +1,4 @@
-import { SignInButton, SignedOut } from "@clerk/clerk-react";
+import { SignInButton, SignedOut, useAuth } from "@clerk/clerk-react";
 import { RainbowButton } from "./ui/rainbow-button";
 
 

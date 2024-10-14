@@ -1,43 +1,80 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import Logo from './Logo'
 import { Button } from './ui/button'
 import { ModeToggle } from './mode-toggle'
 import { Separator } from './ui/separator'
-import { SignInButton, SignedIn, SignedOut, UserButton, useAuth, useUser } from '@clerk/clerk-react'
+import { SignedIn, SignedOut, UserButton, useAuth, useUser } from '@clerk/clerk-react'
 import { Spinner } from './Spinner'
 import { RainbowButtonDemo } from './RainbowButton'
+import SideBar from './SideBar'
+import CustomUserMenu from './CustomUserMenu'
 
 const Header = () => {
-  const menus = ["Products", "Docs", "FAQs"]
-  const { isLoaded, isSignedIn, user } = useUser()
+  const menus = [
+    { title: "Docs", link: "/docs" },
+    { title: "How it Works", link: "/how-it-works" },
+    { title: "FAQs", link: "/faqs" }
+  ]
+  const { isLoaded, isSignedIn } = useUser()
+  const user = useUser()
+  const auth = useAuth()
+  const [isMobile, setIsMobile] = useState(false)
+  console.log(user, auth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
+    handleResize()
+    window.addEventListener('resize', handleResize)
+
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   if (!isLoaded) {
     return <Spinner />
   }
+
+  const NavItems = () => (
+    <>
+      <SignedOut>
+        {!isMobile && menus.map((item, index) => (
+          <Link to={item.link} key={index}>
+            <Button variant="ghost" size="sm" className="text-neutral-600 dark:text-neutral-400">
+              {item.title}
+            </Button>
+          </Link>
+        ))}
+      </SignedOut>
+      <SignedIn>
+        <Button variant="ghost" size="icon">
+          {/* <UserButton /> */}
+          <CustomUserMenu />
+        </Button>
+      </SignedIn>
+    </>
+  )
+
   return (
     <>
-      <header className="z-10 py-2 px-5 md:px-8 lg:mx-24 bg-white dark:bg-black">
+      <header className="z-10 py-2 px-5 md:px-8 lg:px-24 backdrop-blur-md bg-background/80 sticky top-0">
         <div className='flex flex-row items-center justify-between'>
-
           <Logo position="top" />
-          <nav className="flex items-center space-x-4">
-            {menus.map((item, index) => (
-              !isSignedIn && <Button key={index} variant="ghost" className="text-black dark:text-white">{item}</Button>
-            ))}
-            {
-              !isSignedIn ?
-                <RainbowButtonDemo text={"Get Started"} />
-                :
-                <Button variant="ghost" size="icon">
-                  <SignedIn>
-                    <UserButton />
-                  </SignedIn>
-                </Button>
-            }
-            <ModeToggle />
-          </nav>
+          <div className='flex items-center space-x-4'>
+            <NavItems />
+            {!isSignedIn && <RainbowButtonDemo text={"Get Started"} />}
+            {!isMobile && <ModeToggle />}
+            {isMobile && (
+              <>
+                <SideBar />
+              </>
+            )}
+          </div>
         </div>
       </header>
-      <Separator />
+      <Separator className="fixed top-[80px] w-full" />
     </>
   )
 }

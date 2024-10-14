@@ -18,3 +18,7 @@
     --color-5: 90 100% 63%
   }
 }
+
+.border-opacity-custom {
+  border-color: rgba(38, 38, 38, 1);
+}
