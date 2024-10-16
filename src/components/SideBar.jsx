@@ -24,18 +24,33 @@ const SideBar = () => {
                     </SheetTitle>
                     <SheetDescription>
                         {
-                            !isSignedIn && <div className='flex flex-col'>
+                            !isSignedIn ? <div className='flex flex-col gap-1'>
+                                <Link to="/docs">
+                                    <Button variant="ghost" size="sm" className="text-black dark:text-white w-full justify-start text-left">
+                                        Docs
+                                    </Button>
+                                </Link>
                                 <Link to="/how-it-works">
-                                    <Button variant="ghost" size="sm" className="text-black dark:text-white w-full">
+                                    <Button variant="ghost" size="sm" className="text-black dark:text-white w-full justify-start text-left">
                                         How it Works
                                     </Button>
                                 </Link>
-                                <Link to="/docs">
-                                    <Button variant="ghost" size="sm" className="text-black dark:text-white w-full">
-                                        ZeroByte Docs
+                                <Link to="/faqs">
+                                    <Button variant="ghost" size="sm" className="text-black dark:text-white w-full justify-start text-left">
+                                        FAQs
                                     </Button>
                                 </Link>
                             </div>
+                                :
+                                <div className='flex flex-col gap-4 text-black dark:text-white justify-center text-left'>
+                                    <h1 className='text-black dark:text-white opacity-30'>Explore</h1>
+                                    <Button variant="ghost" className="justify-start w-full">Dashboard</Button>
+                                    <Button variant="ghost" className="justify-start w-full">Wallet</Button>
+                                    <Button variant="ghost" className="justify-start w-full">Analytics</Button>
+                                    <Button variant="ghost" className="justify-start w-full">Settings</Button>
+                                    <Button variant="ghost" className="justify-start w-full">Developer</Button>
+                                    <Button variant="ghost" className="justify-start w-full">Help & Support</Button>
+                                </div>
                         }
                     </SheetDescription>
                 </SheetHeader>
