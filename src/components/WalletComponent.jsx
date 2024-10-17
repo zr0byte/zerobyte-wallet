@@ -5,8 +5,8 @@ import { Button } from './ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs'
 import { useUser } from '@clerk/clerk-react'
 import { QrCode, Send, Wallet } from 'lucide-react'
-import icon from "../assets/logos/dark.png"
 import Title from './Title'
+import icon from "../assets/logos/dark.png"
 
 const WalletComponent = () => {
     const { user } = useUser()
