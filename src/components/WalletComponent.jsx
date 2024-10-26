@@ -9,6 +9,7 @@ import Title from './Title'
 const WalletComponent = () => {
     const { user } = useUser()
     const WALLET_ADDRESS = "HHJCp7c3Rr3SkqLQagrSvVMSUGor4izqJ5UKVfi8kWZV"  // Just for now, make it dynamic later
+    const tempMsg = "Your wallet address"
     const dummyBalance = 0.00
     const userFirstName = user?.firstName
     const btns = [
@@ -56,8 +57,11 @@ const WalletComponent = () => {
                                 <span className='text-3xl font-bold text-neutral-600 dark:text-neutral-400'>USD</span>
                             </div>
                             <div>
-                                <Button variant="ghost" className="text-neutral-600 dark:text-neutral-400">
+                                {/* <Button variant="ghost" className="text-neutral-600 dark:text-neutral-400">
                                     {WALLET_ADDRESS.slice(0, 6) + "....." + WALLET_ADDRESS.slice(-4)}
+                                </Button> */}
+                                <Button variant="ghost" className="text-neutral-600 dark:text-neutral-400">
+                                    {tempMsg}
                                 </Button>
                             </div>
                         </div>
