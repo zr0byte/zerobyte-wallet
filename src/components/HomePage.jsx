@@ -7,7 +7,7 @@ import { Footer } from './Footer'
 
 const HomePage = () => {
     return (
-        <div className='h-screen'>
+        <div className=''>
             {/* <Header /> */}
             <Hero />
             <Footer />

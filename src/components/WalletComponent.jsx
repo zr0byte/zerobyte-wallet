@@ -1,17 +1,16 @@
 import React from 'react'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card'
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import { Button } from './ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs'
 import { useUser } from '@clerk/clerk-react'
 import { QrCode, Send, Wallet } from 'lucide-react'
 import Title from './Title'
-import icon from "../assets/logos/dark.png"
 
 const WalletComponent = () => {
     const { user } = useUser()
     const WALLET_ADDRESS = "HHJCp7c3Rr3SkqLQagrSvVMSUGor4izqJ5UKVfi8kWZV"  // Just for now, make it dynamic later
-    const dummyBalance = 20
+    const tempMsg = "Your wallet address"
+    const dummyBalance = 0.00
     const userFirstName = user?.firstName
     const btns = [
         {
@@ -29,7 +28,7 @@ const WalletComponent = () => {
     ]
     return (
         <>
-            <div className='lg:w-[60vw] w-auto px-4 pt-6 h-screen'>
+            <div className='lg:w-[60vw] w-auto px-4 pt-4 h-screen'>
                 {/* <Button className="mb-5 text-black dark:text-white" variant="outline">ZeroByte App</Button> */}
                 <Title title={`${userFirstName}'s wallet`} extraClassName={"text-start"} />
                 <Card>
@@ -58,8 +57,11 @@ const WalletComponent = () => {
                                 <span className='text-3xl font-bold text-neutral-600 dark:text-neutral-400'>USD</span>
                             </div>
                             <div>
-                                <Button variant="ghost" className="text-neutral-600 dark:text-neutral-400">
+                                {/* <Button variant="ghost" className="text-neutral-600 dark:text-neutral-400">
                                     {WALLET_ADDRESS.slice(0, 6) + "....." + WALLET_ADDRESS.slice(-4)}
+                                </Button> */}
+                                <Button variant="ghost" className="text-neutral-600 dark:text-neutral-400">
+                                    {tempMsg}
                                 </Button>
                             </div>
                         </div>

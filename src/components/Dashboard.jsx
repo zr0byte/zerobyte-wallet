@@ -9,8 +9,8 @@ const Dashboard = () => {
     return (
         <div className='min-h-screen bg-white dark:bg-black flex flex-col'>
             <Header />
-            <main className='h-full gap-20 items-center flex lg:mx-24 md:mx-24 sm:mx-24'>
-                <Separator orientation="vertical" className="absolute hidden lg:block md:block left-[300px]" />
+            <main className='flex lg:mx-24 md:mx-8 sm:mx-24 h-full gap-20 w-auto'>
+                <Separator orientation="vertical" className="absolute hidden lg:block md:block lg:left-[300px] md:left-[240px]" />
                 <Menus />
                 <WalletComponent />
             </main>
