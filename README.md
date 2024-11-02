@@ -1,3 +1,4 @@
+<img src="https://pbs.twimg.com/profile_images/1837450642689839105/MNZA-W7J_400x400.jpg" style="width: 200px;"></img>
 # 0byte-wallet
 
 Secure, private, and user-friendly crypto wallet leveraging zero-knowledge proofs on Solana, built with Vite and React.
